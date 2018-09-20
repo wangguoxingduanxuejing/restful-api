@@ -9,5 +9,19 @@ const UserSchema = new Schema({
     email:{
         type:String,
         required:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    avatar:{
+        type:String
+    },
+    date:{
+        type:Date,
+        default:Date.now
     }
 });
+
+//导出模型
+module.exports = User = mongoose.model("users",UserSchema);
