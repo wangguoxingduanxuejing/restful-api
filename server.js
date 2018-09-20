@@ -16,8 +16,8 @@ mongoose.connect(dbURI)
         console.log(err);
     })
 
-app.get('/',(res,req)=>{
-    req.send('Hellow World2');
+app.get('/',(req,res)=>{
+    res.send('Hellow World2');
 });
 
 //注册 body-parser参数解析
