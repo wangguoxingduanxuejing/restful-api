@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const db = require('./config/db');
 const app = express();
 
+//引入users的API
+const users = require("./routes/api/users");
 const dbURI = db.mongoURI;
 
 mongoose.connect(dbURI)
@@ -15,7 +17,8 @@ mongoose.connect(dbURI)
 app.get('/',(res,req)=>{
     req.send('Hellow World2');
 });
-
+// 注册路由接口
+app.use("/api/users",users);
 const port = process.env.PORT||5000;
 app.listen(port,(res,req)=>{
     console.log(`server running http://localhost:${port}`);
